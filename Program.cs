@@ -101,46 +101,49 @@ namespace Семинар_7
         int Stlb = int.Parse(Console.ReadLine()!);
         int[,] YourArray = GetArray2(Str,Stlb,0,100);
         PrintArray(YourArray);
-
-        void GetMedian (int[,] array){
-          Console.Write("Средние числа по столбцам: ");
-        for (int i = 0; i < array.GetLength(1); i++)
-        {
-          int result = 0;
-         for (int j = 0; j < array.GetLength(0); j++)
-         {
-          result = result + array[j,i];
-         }
-         result=result/array.GetLength(1);
-         Console.Write($"{result} | ");
-        }
-        }
-
         GetMedian(YourArray);
 
 
-          int[,] GetArray2 (int m, int n, int minvalue, int maxvalue){
-            int[,] result = new int[m,n];
+
+        void GetMedian (int[,] array)
+        {
+          Console.Write("Средние числа по столбцам: ");
+          for (int i = 0; i < array.GetLength(1); i++)
+          {
+            double result = 0;
+            for (int j = 0; j < array.GetLength(0); j++)
+              {
+                result = result + array[j,i];
+              }
+             result=result/array.GetLength(1);
+            Console.Write($"{result:f1} | ");
+          }
+        }
+
+        int[,] GetArray2 (int m, int n, int minvalue, int maxvalue)
+        {
+          int[,] result = new int[m,n];
             for (int i = 0; i < m; i++)
             {
-                for (int j = 0; j < n; j++)
+              for (int j = 0; j < n; j++)
                 {
                    result[i,j] = new Random().Next(minvalue,maxvalue+1); 
                    
                 } 
             }
-            return result;
-          }
+          return result;
+        }
           
-          void PrintArray (int[,] array){
-            for (int i = 0; i < array.GetLength(0); i++){
-                for (int j = 0; j < array.GetLength(1); j++){
-                    Console.Write($"{array[i,j]} | ");
-                }
-                Console.WriteLine();
+        void PrintArray (int[,] array)
+        {
+          for (int i = 0; i < array.GetLength(0); i++){
+            for (int j = 0; j < array.GetLength(1); j++){
+              Console.Write($"{array[i,j]} | ");
             }
-
+            Console.WriteLine();
           }
+
+        }
           
           
           
