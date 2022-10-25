@@ -6,7 +6,7 @@ namespace Семинар_7
     {
         static void Main(string[] args)
         {
-            // _____________Семинар 7_______________
+            // _____________Домашнее задание к семинару 7_______________
         
 
           /*Задача 47. Задайте двумерный массив размером m×n, заполненный случайными вещественными числами.
@@ -61,6 +61,8 @@ namespace Семинар_7
           i = 4, j = 2 -> такого числа в массиве нет
           i = 1, j = 2 -> 2*/
           
+          /*
+
           Console.WriteLine("Ваш массив:");
           int[,] YourArray = GetArray2(3,4,0,10);
           PrintArray(YourArray);
@@ -83,10 +85,38 @@ namespace Семинар_7
 
         FindElement(Str, Stlb, YourArray);
 
+        */
 
+        /*   Задача 52. Задайте двумерный массив из целых чисел. Найдите среднее арифметическое элементов
+        в каждом столбце.
+        Например, задан массив:
+        1 4 7 2
+        5 9 2 3
+        8 4 2 4
+        Среднее арифметическое каждого столбца: 4,6; 5,6; 3,6; 3.   */
 
+        Console.WriteLine("Введите кол-во строк массива:");
+        int Str = int.Parse(Console.ReadLine()!);
+        Console.WriteLine("Введите кол-во столбцов массива:");
+        int Stlb = int.Parse(Console.ReadLine()!);
+        int[,] YourArray = GetArray2(Str,Stlb,0,100);
+        PrintArray(YourArray);
 
+        void GetMedian (int[,] array){
+          Console.Write("Средние числа по столбцам: ");
+        for (int i = 0; i < array.GetLength(1); i++)
+        {
+          int result = 0;
+         for (int j = 0; j < array.GetLength(0); j++)
+         {
+          result = result + array[j,i];
+         }
+         result=result/array.GetLength(1);
+         Console.Write($"{result} | ");
+        }
+        }
 
+        GetMedian(YourArray);
 
 
           int[,] GetArray2 (int m, int n, int minvalue, int maxvalue){
@@ -105,7 +135,7 @@ namespace Семинар_7
           void PrintArray (int[,] array){
             for (int i = 0; i < array.GetLength(0); i++){
                 for (int j = 0; j < array.GetLength(1); j++){
-                    Console.Write($"{array[i,j]} ");
+                    Console.Write($"{array[i,j]} | ");
                 }
                 Console.WriteLine();
             }
